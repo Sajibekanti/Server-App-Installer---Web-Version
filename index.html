@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server App Installer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .installer-box {
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .installer-box label {
+            font-weight: bold;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .output {
+            margin-top: 15px;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Server App Installer | One Click Server App Install</h1>
+
+        <div class="installer-box">
+            <label><input type="checkbox" name="app" value="bash <(curl -s https://dev.sajibekanti.com/whm_install.sh)"> WHM/cPanel Install</label>
+        </div>
+
+        <div class="installer-box">
+            <label><input type="checkbox" name="app" value="bash <(curl -s https://dev.sajibekanti.com/cloudlinux.sh)"> CloudLinux Install</label>
+        </div>
+
+        <div class="installer-box">
+            <label><input type="checkbox" name="app" value="bash <(curl -s https://dev.sajibekanti.com/cmq.sh)"> CMQ Install</label>
+        </div>
+
+        <div class="installer-box">
+            <label><input type="checkbox" name="app" value="bash <(curl -s https://dev.sajibekanti.com/csf.sh)"> CSF Install</label>
+        </div>
+
+        <div class="installer-box">
+            <label><input type="checkbox" name="app" value="bash <(curl -s https://dev.sajibekanti.com/imunify360.sh)"> Imunify360 Install</label>
+        </div>
+
+        <div class="installer-box">
+            <label><input type="checkbox" name="app" value="bash <(curl -s https://dev.sajibekanti.com/jetbackup5.sh)"> JetBackup5 Install</label>
+        </div>
+
+        <div class="installer-box">
+            <label><input type="checkbox" name="app" value="bash <(curl -s https://dev.sajibekanti.com/litespeed.sh)"> LiteSpeed Install</label>
+        </div>
+
+        <div class="installer-box">
+            <label><input type="checkbox" name="app" value="bash <(curl -s https://dev.sajibekanti.com/whmreseller.sh)"> WHMReseller Install</label>
+        </div>
+
+        <button onclick="generateCommands()">Generate Install Commands</button>
+
+        <div class="output" id="output">
+            <p><strong>Generated Commands:</strong></p>
+            <pre id="commands"></pre>
+        </div>
+    </div>
+
+    <script>
+        function generateCommands() {
+            let checkboxes = document.querySelectorAll('input[name="app"]:checked');
+            let commands = "";
+            checkboxes.forEach((checkbox) => {
+                commands += checkbox.value + "\n";
+            });
+            if (commands) {
+                document.getElementById('output').style.display = 'block';
+                document.getElementById('commands').textContent = commands;
+            } else {
+                alert("Please select at least one app to install.");
+            }
+        }
+    </script>
+</body>
+<footer style="background-color: #39774c; color: #fff; padding: 20px; text-align: center; position: relative;">
+    <p style="font-size: 18px; margin: 0;">Developed by <strong>Sajibe Kanti</strong></p>
+    <div style="margin: 10px 0;">
+        <a href="https://github.com/Sajibekantibd" target="_blank" style="color: #fff; margin: 0 10px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" width="24" height="24">
+        </a>
+        <a href="https://www.linkedin.com/in/sajibe-kanti" target="_blank" style="color: #fff; margin: 0 10px;">
+            <img src="https://cdn-icons-png.flaticon.com/512/61/61109.png" alt="LinkedIn" width="24" height="24">
+        </a>
+    </div>
+</footer>
+
+</html>
