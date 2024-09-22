@@ -24,4 +24,3 @@ This project lets you select and install server apps via an HTML interface.
 **Sajibe Kanti**  
 GitHub: [Sajibekantibd](https://github.com/Sajibekantibd)
 ```
-
